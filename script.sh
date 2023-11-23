@@ -17,7 +17,7 @@ if grep -q "465 inet.*smtpd" "$MASTER_CF" && ! grep -qF $OPTION "$MASTER_CF"; th
     # Option does not exist, inject the command
     echo "Adding $OPTION to $MASTER_CF"
 
-    sed -i '/^465 inet.*smtpd/a \ \n'"$OPTION # added by script" "$MASTER_CF"
+    sed -i '/^465 inet.*smtpd/a \ \n'"$OPTION" "$MASTER_CF"
 
     # Reload postfix
     echo "Reloading Postfix"
