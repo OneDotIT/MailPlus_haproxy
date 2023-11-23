@@ -34,18 +34,18 @@ The following option have to be added to Postfix master.cf file:
  -o smtpd_tls_wrappermode=yes
  -o smtpd_sasl_auth_enable=yes
  -o smtpd_client_restrictions=permit_sasl_authenticated,reject
-**-o smtpd_upstream_proxy_protocol=haproxy**
+ -->> -o smtpd_upstream_proxy_protocol=haproxy
  -o cleanup_service_name=auth-cleanup
 ```
 
 # MailPlus Package notes
-* The MailPlus package can accept custom main.cf configuration that is not effected by reboot or service restart by creating and editing the file /var/packages/MailPlus-Server/etc/customize/postfix/main.cf. The proper permission is rw-r--r--.  
-* Postfix bin is located at ~# /var/packages/MailPlus-Server/target/sbin/postfix check
+* The MailPlus package can accept custom main.cf configuration that is not effected by reboot or service restart by creating and editing the file **/var/packages/MailPlus-Server/etc/customize/postfix/main.cf**. The proper permission is rw-r--r--.  
+* Postfix bin is located at **~# /var/packages/MailPlus-Server/target/sbin/postfix check**
 
 # General notes
-* In my configuration I have not added haproxy as a trusted network source, be caution that any miss configuration to your server might result in open relay.
+* In my configuration I have not added haproxy as a trusted network source, be caution that any miss configuration to your server might result in open relay.  
 * Try to limit the ip source to your device while testing, to connect with the service use openssl:  
-~$ openssl s_client -connect site.onedot.cloud:465
+~$ openssl s_client -connect site.onedot.cloud:465  
 after the initial greeting you can send an EHLO command;  
 read R BLOCK  
 EH220 site.onedot.cloud ESMTP Postfix  
@@ -73,7 +73,7 @@ So, The bash script in this repository shall be added as a cron job / DSM Task S
 adjust the script to your need.
 
 
-References:
+References:  
 [mailplus_team @ Synology community](https://community.synology.com/enu/forum/17/post/103387).  
 [MailPlus Server with multiple domains and multiple IPs - done properly By vlad2000](https://community.synology.com/enu/forum/8/post/163585).  
 [lucho @ Synology community](https://community.synology.com/enu/forum/17/post/115087).  
