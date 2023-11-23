@@ -7,7 +7,7 @@
  POSTFIX_BIN="/var/packages/MailPlus-Server/target/sbin/postfix"
 
 # Option to check/add
- OPTION="-o smtpd_upstream_proxy_protocol=haproxy"
+ OPTION=" -o smtpd_upstream_proxy_protocol=haproxy"
 
 # wait for the service to start, ~ 1 minute, we do 5.
  sleep 300
