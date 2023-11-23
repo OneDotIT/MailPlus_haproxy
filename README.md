@@ -47,9 +47,9 @@ The following option have to be added to Postfix master.cf file:
 * Try to limit the ip source to your device while testing, to connect with the service use openssl:  
 ~$ openssl s_client -connect site.onedot.cloud:465
 after the initial greeting you can send an EHLO command;  
-read R BLOCK
-EH220 site.onedot.cloud ESMTP Postfix
-**EHLO localhost**
+read R BLOCK  
+EH220 site.onedot.cloud ESMTP Postfix  
+**EHLO localhost**  
 250-site.onedot.cloud  
 250-PIPELINING  
 250-SIZE 52428800  
@@ -74,8 +74,8 @@ adjust the script to your need.
 
 
 References:
-[mailplus_team @ Synology community](https://community.synology.com/enu/forum/17/post/103387).
-[MailPlus Server with multiple domains and multiple IPs - done properly By vlad2000](https://community.synology.com/enu/forum/8/post/163585).
-[lucho @ Synology community](https://community.synology.com/enu/forum/17/post/115087).
+[mailplus_team @ Synology community](https://community.synology.com/enu/forum/17/post/103387).  
+[MailPlus Server with multiple domains and multiple IPs - done properly By vlad2000](https://community.synology.com/enu/forum/8/post/163585).  
+[lucho @ Synology community](https://community.synology.com/enu/forum/17/post/115087).  
 
 * one ChatGPT has been harmed during this proccess.
