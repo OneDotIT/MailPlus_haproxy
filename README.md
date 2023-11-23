@@ -3,7 +3,7 @@
 HAProxy is in front of Synology DSM for protection and to provide a public ip for the device.  
 For some environments it is easier to setup Synology and provide services such as MailPlus (postfix) along with a modern mail web interface.
 
-Synology DSM and HAproxy are hosted in different locations, they are connected by a 5G network and an OpenVPN connection.
+Synology DSM and HAProxy are hosted in different locations, they are connected by a 5G network and an OpenVPN connection.
 
 The HAProxy configuration as follows while limiting which domain or subdomain have access to the service:
 ```
@@ -43,7 +43,7 @@ The following option have to be added to Postfix master.cf file:
 * Postfix bin is located at **~# /var/packages/MailPlus-Server/target/sbin/postfix check**
 
 # General notes
-* In my configuration I have not added haproxy as a trusted network source, be caution that any miss configuration to your server might result in open relay.  
+* In my configuration I have not added HAProxy as a trusted network source, be caution that any miss configuration to your server might result in open relay.  
 * Try to limit the ip source to your device while testing, to connect with the service use openssl:  
 ~$ openssl s_client -connect site.onedot.cloud:465  
 after the initial greeting you can send an EHLO command;  
