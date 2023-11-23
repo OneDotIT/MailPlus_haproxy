@@ -50,23 +50,23 @@ after the initial greeting you can send an EHLO command;
 read R BLOCK
 EH220 site.onedot.cloud ESMTP Postfix
 **EHLO localhost**
-250-site.onedot.cloud
-250-PIPELINING
-250-SIZE 52428800
-250-ETRN
-250-AUTH PLAIN LOGIN
-250-AUTH=PLAIN LOGIN
-250-ENHANCEDSTATUSCODES
-250-8BITMIME
-250-DSN
-250 SMTPUTF8
-**auth login**
-334 VXNlcm5hbWU6
-**VXNlcm5hbWU6**
-334 UGFzc3dvcmQ6
-**VXNlcm5hbWU6**
-221 2.7.0 Error: 181.11.111.111 is blocked.
-closed
+250-site.onedot.cloud  
+250-PIPELINING  
+250-SIZE 52428800  
+250-ETRN  
+250-AUTH PLAIN LOGIN  
+250-AUTH=PLAIN LOGIN  
+250-ENHANCEDSTATUSCODES  
+250-8BITMIME  
+250-DSN  
+250 SMTPUTF8  
+**auth login**  
+334 VXNlcm5hbWU6  
+**VXNlcm5hbWU6**  
+334 UGFzc3dvcmQ6  
+**VXNlcm5hbWU6**  
+221 2.7.0 Error: 181.11.111.111 is blocked.  
+closed  
 
 So, The bash script in this repository shall be added as a cron job / DSM Task Scheduler to check for the current master.cf smtps options and add the following if not exist:  
 -o smtpd_upstream_proxy_protocol=haproxy  
