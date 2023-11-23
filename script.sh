@@ -19,14 +19,19 @@ if grep -q "465 inet.*smtpd" "$MASTER_CF" && ! grep -qF $OPTION "$MASTER_CF"; th
 
     # # Use awk to inject the option after the smtpd configuration block for 465 inet
     # awk -v opt="$OPTION" '/^465 inet.*smtpd/,/^$/{if ($0 == "" && !f) {print opt; f=1}}1' "$MASTER_CF" > tmpfile && mv tmpfile "$MASTER_CF"
-    
-    # Use sed for in-place editing to inject the option after the smtpd configuration block for 465 inet
+
+    # Use sed to inject the option after the smtpd configuration block for 465 inet
+    # Handles cases where there might not be a newline after the last option
     sed -i "/^465 inet.*smtpd/,/^$/{
+        /^$/!{
+            h; \$!d; x
+        }
         /^$/{
             i $OPTION
             :a;n;ba
         }
     }" "$MASTER_CF"
+
 
     # Reload postfix
     echo "Reloading Postfix"
